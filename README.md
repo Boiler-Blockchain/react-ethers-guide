@@ -7,7 +7,7 @@ This is a simple example project demonstrating how to interact with a smart cont
 1. **Clone the repository:**
 
 ```
-https://github.com/Boiler-Blockchain/react-ethers-guide.git
+git clone https://github.com/Boiler-Blockchain/react-ethers-guide.git
 ```
 
 2. **Install dependencies:**
@@ -37,6 +37,29 @@ Click on the "Connect Wallet" button to connect your wallet.
 - Enter a value in the input field and click on the "Set" button to set the value in the smart contract.
 - Click on the "Get Value" button to retrieve the current value from the smart contract.
 
+## File Structure
+
+### Contracts
+
+- **Example.sol:** This file contains the Solidity smart contract code for the example contract used in the project.
+
+### src
+
+- **contracts:** This folder contains the ABI (Application Binary Interface) of the deployed smart contract. It is used by the front end to interact with the contract.
+
+- **constants.js:** This file contains the address of the deployed smart contract. If you make changes to the contract and redeploy it, you need to update the address here.
+
+- **App.js:** This file contains most of the application logic and frontend code. It includes state variables for the application (`provider`, `connectedAddress`, `contractValue`) and functions to connect the wallet and interact with the smart contract (`connectWallet`, `callContractFunction`). The HTML structure of the website is defined in the return function.
+
+### Ethers.js Documentation
+
+For more information on how to use Ethers.js, refer to their documentation [here](https://docs.ethers.org/v5/). Note that some parts of the documentation may be outdated, so be sure to check their migration guide [here](https://docs.ethers.org/v6/migrating/) for any updates.
+
+### Styling
+
+Styling for the project is done using Tailwind CSS. You can learn how to use Tailwind CSS [here](https://tailwindcss.com/docs/guides/create-react-app).
+
+
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any problems.
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any problems
