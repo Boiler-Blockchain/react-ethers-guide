@@ -10,6 +10,8 @@ function App() {
      const [provider, setProvider] = useState(null);
   const [connectedAddress, setConnectedAddress] = useState(null);
   const [contractValue, setContractValue] = useState(null);
+  const [inputValue, setInputValue] = useState('');
+
 
   const connectWallet = async () => {
     try {
@@ -41,13 +43,17 @@ function App() {
         const value = await contract.getValue();
         setContractValue(Number(value));
       } else if (func === 'setValue') {
-        const newValue = 42; // change later
+        const newValue = inputValue; // change later
         await contract.setValue(newValue);
         console.log('Value set successfully');
       }
     } catch (error) {
       console.error('Error calling contract function:', error);
     }
+  };
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
   };
 
 
@@ -70,7 +76,7 @@ function App() {
         {connectedAddress && (
           <div className="mt-8 flex items-center justify-center space-x-6">
             <div className="relative">
-              <input type="number" className="bg-gray-700 text-white px-4 py-3 rounded-md focus:outline-none focus:ring focus:ring-indigo-500" placeholder="Enter value" />
+              <input type="number" className="bg-gray-700 text-white px-4 py-3 rounded-md focus:outline-none focus:ring focus:ring-indigo-500" placeholder="Enter value" value={inputValue} onChange={handleInputChange} />
               <button onClick={() => callContractFunction('setValue')} className="absolute right-0 top-0 bottom-0 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500">Set</button>
             </div>
             <button onClick={() => callContractFunction('getValue')} className="bg-green-500 text-white px-8 py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-500">Get Value</button>
