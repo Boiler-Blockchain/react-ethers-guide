@@ -41,13 +41,13 @@ Click on the "Connect Wallet" button to connect your wallet.
 
 ### Contracts
 
-- **Example.sol:** This file contains the Solidity smart contract code for the example contract used in the project.
+- **Example.sol:** This file contains the Solidity smart contract code for the example contract used in the project. Note that this is a copy of the contract for your reference and not the contract itself. So if you make changes to it/ delete it, it won't affect the app since the contract used by the app is already deployed on Sepolia.
 
 ### src
 
 - **contracts:** This folder contains the ABI (Application Binary Interface) of the deployed smart contract. It is used by the front end to interact with the contract.
 
-- **constants.js:** This file contains the address of the deployed smart contract. If you make changes to the contract and redeploy it, you need to update the address here.
+- **constants.js:** This file contains the address of the deployed smart contract. If you make changes to the contract and redeploy it, you need to update the address here. Also, you will need to change the ABI mentioned above. You can find the ABI in remix after you compile the contract.
 
 - **App.js:** This file contains most of the application logic and frontend code. It includes state variables for the application (`provider`, `connectedAddress`, `contractValue`) and functions to connect the wallet and interact with the smart contract (`connectWallet`, `callContractFunction`). The HTML structure of the website is defined in the return function.
 
